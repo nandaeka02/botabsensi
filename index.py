@@ -16,11 +16,6 @@ def greet(message):
             def help(message):
                 bot.send_message(message.from_user.id, "Ada yang bisa kami bantu?")
         else:
-            # bot.reply_to(message, "Anda Belum terdaftar langganan premium. Silahkan daftar dan lakukan pembayaran untuk menggunakan bot ini.")
-            print(message.text)
-            string = message.text
-            string_split = string.split(' ')
-            print(string_split[1])
             bot.send_message(message.from_user.id, "Anda Belum terdaftar langganan premium. Silahkan daftar dan lakukan pembayaran untuk menggunakan bot ini.")
 
 # @bot.message_handler(commands=['start', 'help'])

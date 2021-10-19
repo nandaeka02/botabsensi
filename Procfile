@@ -1,1 +1,2 @@
-Worker: python index.py
+web : python index.py
+web : time.sleep(99999)

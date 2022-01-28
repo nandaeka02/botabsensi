@@ -19,7 +19,7 @@ ref = db.reference("userid")
 # for x in ref.get():
 #   print(ref.child(x).get())
 
-API_KEY = "1733533777:AAGeCuSsd005TvCaC4FCN5s4goy_GXfAzhc"
+API_KEY = "1733533777:AAEk9vE6dF_eSeoJ34eclh1pkOsBmRpqsdg"
 bot = telebot.TeleBot(API_KEY)
 # db["whitelist"] = ["1245546100","946612767","1931487429"]
 whitelist = []
@@ -48,86 +48,98 @@ def greet(message):
         
         @bot.message_handler(commands=["absenuniv"])
         def absenuniv(message):
-            string = message.text
-            newstring = string.replace(" *","*")
-            finalstring = newstring.replace(" ", "%20")
-            data = finalstring.split('*')
-            # print(data)
-            if len(data) < 15:
-                bot.send_message(message.from_user.id, "Tidak sesuai format harap ulangi!")
-            else:
-                # print(data)
-                entry = ""
-                if data[8] == "A":
-                  entry = "entry.2010325683"
-                elif data[8] == "B":
-                  entry = "entry.1490912290"
-                elif data[8] == "C":
-                  entry = "entry.1655822116"
-                elif data[8] == "D":
-                  entry = "entry.1224325679"
-                elif data[8] == "E":
-                  entry = "entry.1700993841"
-                elif data[8] == "F":
-                  entry = "entry.1264841064"
-                elif data[8] == "G":
-                  entry = "entry.415322596"
-                elif data[8] == "H":
-                  entry = "entry.1911240248"
-                elif data[8] == "I":
-                  entry = "entry.1025120431"
-                elif data[8] == "J":
-                  entry = "entry.2040818435"
-                elif data[8] == "K":
-                  entry = "entry.174033833"
-                elif data[8] == "L":
-                  entry = "entry.54974004"
-                elif data[8] == "M":
-                  entry = "entry.935837216"
-                elif data[8] == "N":
-                  entry = "entry.2144606882"
-                elif data[8] == "O":
-                  entry = "entry.1613190089"
-                elif data[8] == "P":
-                  entry = "entry.1624172777"
-                elif data[8] == "Q":
-                  entry = "entry.770846117"
-                elif data[8] == "R":
-                  entry = "entry.669808987"
-                elif data[8] == "S":
-                  entry = "entry.1042103582"
-                elif data[8] == "T":
-                  entry = "entry.1756380006"
-                elif data[8] == "U":
-                  entry = "entry.173948960"
-                elif data[8] == "V":
-                  entry = "entry.929135864"
-                elif data[8] == "W":
-                  entry = "entry.652314514"
-                elif data[8] == "X":
-                  entry = "entry.1152317860"
-                elif data[8] == "Y":
-                  entry = "entry.1152317860"
-                elif data[8] == "Z":
-                  entry = "entry.1333095075"
-                links = "https://docs.google.com/forms/d/e/1FAIpQLSdyOaJeak5Rm4nKNJnTG65Fv9RYFxvPMNm8-Bb5Egjb-40RLg/viewform?emailAddress={}&entry.608390691={}&entry.1579586451={}&entry.1079795373={}&entry.1067113942={}&entry.1315756331={}&entry.314869359={}&entry.1263835528={}&{}={}&entry.148101967={}&entry.865534847={}&entry.820195671={}&entry.496196548={}&entry.885367798=Minggu%20Ke-{}&entry.644590421=Pertemuan%20Ke-{}?" . format(data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],entry,data[9],data[9],data[10],data[11],data[12],data[13],data[14])
-                # print(links)
-                URL = "http://tinyurl.com/api-create.php"
-                url = ""
-                try:
-                    url = URL + "?" \
-                        + urllib.parse.urlencode({"url": links})
-                    res = requests.get(url)
-                    # print("STATUS CODE:", res.status_code)
-                    # print("   LONG URL:", links)
-                    # print("  SHORT URL:", res.text)
-                    print("Shorten success")
-                    url = res.text
-                except Exception as e:
-                    raise
+            
+            with open('matkul.txt', 'r') as file:
                 markup = types.InlineKeyboardMarkup()
-                url_btn = types.InlineKeyboardButton(text="    Absen   ", url=url)
-                markup.add(url_btn)
+                datamatkul = file.read()
+                datamatkul = datamatkul.split("\n")
+                print(datamatkul)
+                for indexdata in datamatkul:
+                    removecommand = message.text.replace("/absenuniv","")
+                    print(removecommand)
+                    string = indexdata+removecommand
+                    print(string)
+                    newstring = string.replace(" *","*")
+                    print(newstring)
+                    finalstring = newstring.replace(" ", "%20")
+                    print(finalstring)
+                    data = finalstring.split('*')
+                    print(data)
+                    data.pop(0)
+                    if len(data) < 7:
+                        bot.send_message(message.from_user.id, "Tidak sesuai format harap ulangi!")
+                    else:
+                        # print(data)
+                        entry = ""
+                        if data[0] == "A":
+                          entry = "entry.2010325683"
+                        elif data[0] == "B":
+                          entry = "entry.1490912290"
+                        elif data[0] == "C":
+                          entry = "entry.1655822116"
+                        elif data[0] == "D":
+                          entry = "entry.1224325679"
+                        elif data[0] == "E":
+                          entry = "entry.1700993841"
+                        elif data[0] == "F":
+                          entry = "entry.1264841064"
+                        elif data[0] == "G":
+                          entry = "entry.415322596"
+                        elif data[0] == "H":
+                          entry = "entry.1911240248"
+                        elif data[0] == "I":
+                          entry = "entry.1025120431"
+                        elif data[0] == "J":
+                          entry = "entry.2040818435"
+                        elif data[0] == "K":
+                          entry = "entry.174033833"
+                        elif data[0] == "L":
+                          entry = "entry.54974004"
+                        elif data[0] == "M":
+                          entry = "entry.935837216"
+                        elif data[0] == "N":
+                          entry = "entry.2144606882"
+                        elif data[0] == "O":
+                          entry = "entry.1613190089"
+                        elif data[0] == "P":
+                          entry = "entry.1624172777"
+                        elif data[0] == "Q":
+                          entry = "entry.770846117"
+                        elif data[0] == "R":
+                          entry = "entry.669808987"
+                        elif data[0] == "S":
+                          entry = "entry.1042103582"
+                        elif data[0] == "T":
+                          entry = "entry.1756380006"
+                        elif data[0] == "U":
+                          entry = "entry.173948960"
+                        elif data[0] == "V":
+                          entry = "entry.929135864"
+                        elif data[0] == "W":
+                          entry = "entry.652314514"
+                        elif data[0] == "X":
+                          entry = "entry.1152317860"
+                        elif data[0] == "Y":
+                          entry = "entry.1152317860"
+                        elif data[0] == "Z":
+                          entry = "entry.1333095075"
+                        links = "https://docs.google.com/forms/d/e/1FAIpQLScXSj_X8mA4AdHBYKV0iGpVhWC_8aNudY7bJPO9agtTukZOlw/viewform?emailAddress=nandaekasuciramadan_1519621004@mhs.unj.ac.id&entry.608390691=Nanda%20Eka%20Suci%20Ramadan&entry.1579586451=1519621004&entry.1079795373=081280716308&entry.1067113942=S1&entry.1315756331=Fakultas%20Teknik&entry.314869359=(S1)%20Sistem%20dan%20Teknologi%20Informasi&entry.1263835528={}&{}={}&entry.148101967={}&entry.865534847={}&entry.820195671={}&entry.496196548={}&entry.644590421=Minggu%20Ke%20-{}&entry.73141647=Pertemuan%20Ke-{}" . format(data[0],entry,data[1],data[1],data[2],data[3],data[4],data[5],data[6])
+                        # print(links)
+                        URL = "http://tinyurl.com/api-create.php"
+                        url = ""
+                        try:
+                            url = URL + "?" \
+                                + urllib.parse.urlencode({"url": links})
+                            res = requests.get(url)
+                            # print("STATUS CODE:", res.status_code)
+                            # print("   LONG URL:", links)
+                            # print("  SHORT URL:", res.text)
+                            print("Shorten success")
+                            url = res.text
+                        except Exception as e:
+                            raise
+                        url_btn = types.InlineKeyboardButton(text="    {}   ".format(data[3].replace("%20"," ")), url=url)
+                        markup.add(url_btn)
                 bot.send_message(message.from_user.id, text="Silahkan klik tombol yang ada dibawah untuk absen",reply_markup=markup)
     else:
         # print("Username = {} | ID = {}" . format(message.from_user.username, message.from_user.id))

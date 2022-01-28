@@ -1,0 +1,8 @@
+*M *Murien Nugraheni, S.T., M.Cs. *1519600007 *Statistika *2
+*N *Dr. Nurzengki Ibrahim, MM *1000000187 *Pendidikan Kewarganegaraan *2
+*F *Fuad Mumtas, S.Kom., M.T.I. *1519600011 *Dasar Pemrograman *3
+*F *Fuad Mumtas, S.Kom., M.T.I. *1519600015 *Paradigma Sistem *2
+*A *Ali Idrus, S.Kom., M.Kom *1519600009 *Antar Muka & Visualisasi *3
+*I *Dr. Ika Lestari, S.Pd, M.Si *1000000311 *Wawasan Pendidikan *2
+*M *Dr. Muhammad Yusro, S.Pd., M.T., Ph.D *1000000027 *Pendidikan Agama Islam *2
+*I *Irma Permata Sari, S.Pd., M.Eng. *1519600013 *Basis Data *3
